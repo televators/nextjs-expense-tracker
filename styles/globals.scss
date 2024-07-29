@@ -1,0 +1,206 @@
+@use './variables' as *;
+
+// Base Styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: $off-white;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+h3 {
+  margin: 40px 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $grey-dark;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+// Layout and Components
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  margin: 30px auto;
+}
+
+.navbar {
+  background: $black;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+
+  button {
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .cl-button {
+    background: transparent;
+    border: 0;
+  }
+}
+
+.navbar,
+.guest {
+  button {
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    color: $white;
+    background: $purple;
+    border: 0;
+    border-radius: 5px;
+  }
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.guest {
+  text-align: center;
+}
+
+.error {
+  padding: 3px;
+  background: $red;
+  color: $white;
+}
+
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: $white;
+  box-shadow: $box-shadow;
+
+  & > div {
+    flex: 1;
+    text-align: center;
+
+    &:first-of-type {
+      border-right: 1px solid $grey;
+    }
+  }
+}
+
+.money {
+  margin: 5px 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+
+  &.plus {
+    color: $green;
+  }
+
+  &.minus {
+    color: $orange;
+  }
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+input {
+  &[type='text'],
+  &[type='number'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid $grey;
+    border-radius: 2px;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin: 10px 0 30px;
+  padding: 10px;
+  color: $white;
+  font-size: 16px;
+  background-color: $lilac;
+  box-shadow: $box-shadow;
+  border: 0;
+}
+
+.delete-btn {
+  cursor: pointer;
+  position: absolute;
+  padding: 2px 5px;
+  top: 50%;
+  left: 0;
+  color: $white;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: $orange-dark;
+  border: 0;
+  opacity: 0;
+  transform: translate( -100%, -50% );
+  transition: opacity 0.3s ease;
+}
+
+.btn,
+.delete-btn {
+  &:focus {
+    outline: 0;
+  }
+}
+
+.list {
+  padding: 0;
+  margin-bottom: 40px;
+  list-style-type: none;
+
+  li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    color: $graphite;
+    background-color: $white;
+    box-shadow: $box-shadow;
+
+    &.plus {
+      border-right: 5px solid $green;
+    }
+
+    &.minus {
+      border-right: 5px solid $orange;
+    }
+
+    &:hover {
+      .delete-btn {
+        opacity: 1;
+      }
+    }
+  }
+}
