@@ -1,5 +1,7 @@
 import AddTransaction from "@/components/AddTransaction";
 import Guest from "@/components/Guest";
+import Balance from "@/components/Balance";
+import IncomeExpense from "@/components/IncomeExpense";
 import { currentUser } from "@clerk/nextjs/server";
 
 const HomePage = async () => {
@@ -9,7 +11,11 @@ const HomePage = async () => {
 
   return (
     <section>
-      <h1 className="heading">Welcome, { user.firstName }</h1>
+      <h3 className="heading">Welcome, { user.firstName }</h3>
+
+      <Balance />
+
+      <IncomeExpense />
 
       <AddTransaction />
     </section>
